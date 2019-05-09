@@ -13,13 +13,11 @@
     <meta name="description" content="本热舒适计算工具依ASHRAE Standard 55-2013设计，可以用于计算PMV, PPD, SET, 以及适应性热舒适Adaptive comfort">
 
     <link rel="stylesheet" type="text/css" href="comforttool/css/layout.css"/>   
-    <link rel="stylesheet" type="text/css" href="comforttool/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="comforttool/css/jquery-ui.css"/>
 
     <script type="text/javascript" src="comforttool/js/lib/d3.js"></script>
     <script type="text/javascript" src="comforttool/js/lib/jquery-1.6.2.min.js"></script>
-		<script type="text/javascript" src="comforttool/js/lib/popper.min.js"></script>
-    <script type="text/javascript" src="comforttool/js/lib/bootstrap.min.js"></script>
-		<script type="text/javascript" src="comforttool/js/lib/bootstrap-input-spinner.js"></script>
+    <script type="text/javascript" src="comforttool/js/lib/jquery-ui.min.js"></script>
     <script type="text/javascript" src="comforttool/js/util.js"></script>
     <script type="text/javascript" src="comforttool/js/comfortmodels.js"></script>
     <script type="text/javascript" src="comforttool/js/psychrometrics.js"></script>
@@ -72,13 +70,16 @@
 <body>
   <div id="header">
      
-		 <div class="page-header">   <h1>热舒适计算工具 <small> -XXX </small></h1> </div>
+    <div id="banner" style="text-align:center;padding:20px;">
+      热舒适计算工具（ASHRAE-55）
+    </div>
+    
   </div>
     
   
   <div id="all_content">
 
-  <div id="left_content" style="border-left: solid 4px #2A4583;"> 
+  <div id="left_content" style="background-color: #DCE7F7;"> 
 
   <div id="select_comfort_model" style = "margin-bottom:7px; padding-top:6px; float:left;" class="in">
     <div id="modelDiv">
@@ -109,9 +110,11 @@
     <div class="leftlabel" id="tr-lab" style="margin-top:15px;">
       平均辐射温度
     </div>
-   
-      <input type="number" value="25" min="-30" max="50" step="1"/>
-      
+    <div class="inputfield" id="tr-input">
+      <input class="inputbox" id="tr" />
+      <span class="tempunit"> &deg;C &nbsp;</span>
+    </div>
+
     <div id="pmv-inputs">
       <div class="leftlabel" style="margin-top:15px;">
         风速
@@ -334,5 +337,7 @@
   </script>
   </div>
   <div>
-  </div>
+  <p>参考资料：<br/>
+[1] Hoyt Tyler, Schiavon Stefano, Piccioli Alberto, Moon Dustin, and Steinfeld Kyle, 2013, CBE Thermal Comfort Tool. Center for the Built Environment, University of California Berkeley, <a href="http://smap.cbe.berkeley.edu/comforttool" title="美国加州大学伯克利分校建筑环境中心">http://cbe.berkeley.edu/comforttool/</a>(美国加州大学伯克利分校建筑环境中心CBE热舒适计算工具)</p>
+</div>
 </body>

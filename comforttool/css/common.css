@@ -126,7 +126,8 @@
 			height: 902px;
 			top:0;
 			left:0px;
-			float: left;}
+			float: left;
+			border-radius:5px;}
 
 #right_content{width:578px;
 			height: 900px;
@@ -134,7 +135,8 @@
 			left:605px;
 			float: right;
             padding-left: 2px;
-			border-left:4px solid #204D74;}
+			border:1px solid #cccccc;
+			border-radius:5px;}
 
 #comply-msg {padding-left:5px;
 			    font-family: sans-serif;}

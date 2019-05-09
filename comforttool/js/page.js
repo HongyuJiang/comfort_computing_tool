@@ -382,8 +382,6 @@ $(document).ready(function() {
 });
 
 $(function() {
-	
-	$("input[type='number']").inputSpinner()
 
     $('#globedialog').dialog({
         autoOpen: false,
