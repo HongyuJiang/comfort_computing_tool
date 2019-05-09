@@ -44,27 +44,6 @@
 <script type="text/javascript" src="comforttool/js/lib/respond.min.js"></script>
 <![endif]-->
 
-  <script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-30562462-2']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
-  <script>
-  var _hmt = _hmt || [];
-  (function() {
-    var hm = document.createElement("script");
-    hm.src = "//hm.baidu.com/hm.js?ba292deba7b13f3936ef8290375b1e0e";
-    var s = document.getElementsByTagName("script")[0]; 
-    s.parentNode.insertBefore(hm, s);
-  })();
-  </script>
 
   </head>
 <body>
@@ -87,7 +66,7 @@
     </div>
   </div>
         
-  <div class="right" style="margin-bottom:5px; margin-bottom:7px; padding-top:10px;" >
+  <div class="right" style="display:none;margin-bottom:5px; margin-bottom:7px; padding-top:10px;" >
     <select id="model-type" style="float:right; margin-right:14px;margin-bottom:5px;">
        <option value="pmvElevatedAirspeed">PMV模型</option>
        <option value="adaptiveComfort">适应性模型</option>
@@ -102,10 +81,7 @@
       <input class="inputbox" id="ta" />
       <span class="tempunit">&deg;C</span>
     </div>
-    <div class="right">
-      <input type="checkbox" id="link"/>
-      <label id="labelforlink" style="text-align:left;"  for="link">使用操作温度（Operative）</label>
-    </div>  
+  
     
     <div class="leftlabel" id="tr-lab" style="margin-top:15px;">
       平均辐射温度
@@ -234,6 +210,7 @@
     </div><!--id="output-b"-->       
 
     <div class="out" id="output-a" style="float:left; margin-top:-5px;">
+			
       <div id="pmv-outputs">
         <div id="pmv-out-label" class="leftlabel">PMV</div>
         <div class="divresult">
@@ -253,13 +230,7 @@
           <span class="result" id="sensation"></span>
         </div>
         <br />
-        <div class="leftlabel">SET</div>
-        <div class="divresult">
-          <span class="result" id="SET"></span><br />
-        </div>
-        <div class="resultunit">
-          <span class="tempunit"> &deg;C</span>
-        </div>
+        
       </div><!--id="pmv-outputs"-->
         
       <div id="adaptive-outputs" style="display:none; float:left;">
@@ -296,9 +267,9 @@
 
 	<div class="leftlabel" id="chartSelect-cont" style="position:relative; left:100px; top:30px;">
       <select id="chartSelect">
+				<option value="temphum">温湿度图</option>
         <option value="psychta">焓湿图(干球温度)</option>
         <option value="psychtop">焓湿图(操作温度)</option>
-        <option value="temphum">温湿度图</option>
       </select>
     </div>
     <div class="leftlabel" id="chart-title-adaptive" style="display:none; font-size: 16px; position: relative; left: 240px; top:35px;">
@@ -336,8 +307,5 @@
     });
   </script>
   </div>
-  <div>
-  <p>参考资料：<br/>
-[1] Hoyt Tyler, Schiavon Stefano, Piccioli Alberto, Moon Dustin, and Steinfeld Kyle, 2013, CBE Thermal Comfort Tool. Center for the Built Environment, University of California Berkeley, <a href="http://smap.cbe.berkeley.edu/comforttool" title="美国加州大学伯克利分校建筑环境中心">http://cbe.berkeley.edu/comforttool/</a>(美国加州大学伯克利分校建筑环境中心CBE热舒适计算工具)</p>
-</div>
+
 </body>

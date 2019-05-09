@@ -853,7 +853,9 @@ $('#model-type').change(function() {
 });
 
 $("#chartSelect").change(function(){
-	chart = $("#chartSelect").val();
+	
+	chart = 'temphum';
+	//chart = $("#chartSelect").val();
 	if (chart == "psychta" || chart == "psychtop"){
 		$("#chart-div").show();
 		$("#temphumchart-div").hide();
