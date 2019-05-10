@@ -78,7 +78,7 @@ var bc = new function() {
             .attr("class", "db axis")
             .attr("id", "db-axis-C-temphum")
             .attr("transform", "translate(0," + (bc.height - bc.margin) + ")")
-            .call(db_axis.tickSubdivide(0).tickSize(-(bc.height - bc.margin - bc.rbmargin), 0).tickPadding(5))
+            .call(db_axis)
 
           bc.svg
             .append("g")
@@ -99,7 +99,7 @@ var bc = new function() {
 
         d3.select("#db-axis-C-temphum")
             .append("text")
-            .text("干球温度 [°C]")
+            .text("干球温度 (°C)")
             .attr("class", "db-unit")
             .attr("x", (bc.width / 2) - 50)
             .attr("y", bc.margin / 1.6)
@@ -107,7 +107,7 @@ var bc = new function() {
 
         d3.select("#db-axis-F-temphum")
             .append("text")
-            .text("干球温度 [°F]")
+            .text("干球温度 (°F)")
             .attr("class", "db-unit")
             .attr("x", (bc.width / 2) - 50)
             .attr("y", bc.margin / 1.6)
@@ -116,7 +116,7 @@ var bc = new function() {
         d3.select(".rh.axis")
             .append("text")
             .attr("id", "rh-text")
-            .text("相对湿度 [%]")
+            .text("相对湿度 (%)")
             .attr("transform", "rotate (-90, -35, 0) translate(-350)");
 
     }
@@ -172,10 +172,6 @@ var bc = new function() {
             .attr("cx", bc.db_scale(d.ta))
             .attr("cy", bc.rh_scale(d.rh))
 
-    }
-
-    this.getHumRatio = function(db, rh) {
-        return psy.humratio(psy.PROP.Patm, rh * psy.satpress(db) / 100)
     }
 
     this.findComfortBoundary = function(d, pmvlimit) {

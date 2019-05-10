@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" type="text/css" href="comforttool/css/layout.css"/>   
     <link rel="stylesheet" type="text/css" href="comforttool/css/jquery-ui.css"/>
+		<link rel="stylesheet" type="text/css" href="comforttool/css/bootstrap.min.css"/>
 
     <script type="text/javascript" src="comforttool/js/lib/d3.js"></script>
     <script type="text/javascript" src="comforttool/js/lib/jquery-1.6.2.min.js"></script>
@@ -31,8 +32,6 @@
   <script type="text/javascript" src="comforttool/js/lib/ui.multiselect.js"></script>
   <script type="text/javascript" src="comforttool/js/lib/ui.selectmenu.js"></script>
   <script type="text/javascript" src="comforttool/js/lib/jquery.scrollTo-min.js"></script>
-  <script type="text/javascript" src="comforttool/js/psychchart.js"></script>
-  <script type="text/javascript" src="comforttool/js/adaptchart.js"></script>
   <script type="text/javascript" src="comforttool/js/temphumchart.js"></script>
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -43,14 +42,12 @@
 <!--[if lt IE 9]>
 <script type="text/javascript" src="comforttool/js/lib/respond.min.js"></script>
 <![endif]-->
-
-
   </head>
 <body>
   <div id="header">
      
-    <div id="banner" style="text-align:center;padding:20px;">
-      热舒适计算工具（ASHRAE-55）
+    <div id="banner" style="text-align:center;padding:20px;margin-bottom: 50px;">
+      热舒适计算工具（XXX）
     </div>
     
   </div>
@@ -58,13 +55,8 @@
   
   <div id="all_content">
 
-  <div id="left_content" style="background-color: #DCE7F7;"> 
+  <div id="left_content" style="background-color: white;"> 
 
-  <div id="select_comfort_model" style = "margin-bottom:7px; padding-top:6px; float:left;" class="in">
-    <div id="modelDiv">
-      &nbsp;选择计算模型：
-    </div>
-  </div>
         
   <div class="right" style="display:none;margin-bottom:5px; margin-bottom:7px; padding-top:10px;" >
     <select id="model-type" style="float:right; margin-right:14px;margin-bottom:5px;">
@@ -103,17 +95,35 @@
         <input type="checkbox" id="local-control"/>
         <label style="text-align:left; " for="local-control">局部风速控制</label>
       </div>-->
+			
      
       <div class="leftlabel" style="margin-top:15px;">
-        空气湿度
+         相对湿度
       </div>
       <div class="inputfield">
         <input class="inputbox" id="rh" />
         <span class="unit" id="rh-unit"> %</span>
       </div>
+			
+			<div class="right">
+			  <fieldset>
+			  	<span>相对湿度快速选择: </span>
+					<br>
+			  	<label for="radio-1">30%</label>
+			  	<input type="radio" name="radio-1" id="radio-1">
+					<br>
+			  	<label for="radio-2">50%</label>
+			  	<input type="radio" name="radio-1" id="radio-2">
+					<br>
+			  	<label for="radio-3">80%</label>
+			  	<input type="radio" name="radio-1" id="radio-3">
+			  </fieldset>
+			</div>
+			
+			
     </div><!--end div id="pmv-inputs"-->
      
-    <div class="right" id="humidity-spec-cont">
+    <div class="right" id="humidity-spec-cont" style="display: none;">
       <select id="humidity-spec">
         <option value="rh">相对湿度</option>
         <option value="w">含湿量(kg/kg(a))</option>
@@ -171,10 +181,7 @@
        <div class="inputfield" id="cloSelectDiv">
          <select id="cloSelect"></select>
        </div>
-       <div>
-         <input type="checkbox" id="customClo"/>
-         <label style="margin-top:15px; margin-right:20px; width:96%;loat:left;" for="customClo">服装热阻精算</label>
-       </div>
+    
        <div id="customCloToggle" style="display:none; float:left;"><br />
          <select id="cloMultiSelect" class="multiselect" multiple="multiple"></select>
          <button id="setClo" style="margin-top: 5px;">设 定</button>
@@ -193,9 +200,7 @@
     </div><!--end div id="cloInput"--> 
        
     <div class="buttons" style="float:left; margin-bottom:5px; margin-top: 5px; margin-left:10px;">
-      <button id="specPressure" style="float:left; height:45px; position:relative; top: 50%">当地大气压力</button>
-      <button id="unitsToggle" style="float:left; height:45px;">SI/IP转换</button>
-	  <button id="setDefaults" style="float:left; height:45px;">重 置</button>
+			<button id="setDefaults" style="float:left; height:45px;">重 置</button>
     </div>
 
   </div><!--id="left_content"-->
@@ -203,7 +208,6 @@
 
   <div id="right_content">
 
-    <br class="clear">
     <div class="out" id="output-b" style="float:left;">
     <div id="comply-msg"></div>
     <div id="special-msg"></div>
@@ -265,7 +269,7 @@
 
     </div><!--id="output-a"-->
 
-	<div class="leftlabel" id="chartSelect-cont" style="position:relative; left:100px; top:30px;">
+	<div  class="leftlabel" id="chartSelect-cont" style="display: none; position:relative; left:100px; top:30px;">
       <select id="chartSelect">
 				<option value="temphum">温湿度图</option>
         <option value="psychta">焓湿图(干球温度)</option>
@@ -281,21 +285,6 @@
     <div style="margin-left:10px;" id="temphumchart-div"></div>
     <div style="margin-left:20px;" id="chart-div-adaptive"></div>
 
-  <div id ="pmv-notes">
-    <div class="note" id="psychta-note" style="margin-left:58px;">
-    <b>注：</b>在本焓湿图中，横坐标为干球温度，平均辐射温度（MRT）固定不变（大小为输入框内的数值）。阴影区域为ASHRAE-55推荐的热舒适区域。
-    </div>
- <div class="note" id="psychtop-note" style="margin-left:58px;">
-    <b>注：</b>在本焓湿图中，横坐标为操作温度（Operative temperature），干球温度（DBT）等于平均辐射温度（MRT）。阴影区域代表，在DBT=MRT的前提下，PMV不超过±0.5的热舒适范围。
-    </div>
-	<div class="note" id="temphum-note">
-    <b>注：</b> 本图描述了在相同热舒适情况下，干球温度和相对湿度此消彼长的关系。阴影区域代表PPD≤10%。
-    </div>
-  </div><!--end of div "pmv-notes"-->
-
-    <div class="note" id="adaptive-note">
-    <b>注：</b>本模型适用于非空调环境，需满足以下条件：1）环境中未安装制冷或供暖系统；2）人体的新陈代谢率处于1.0 met到1.3 met之间；3）人员可以依据冷、热感觉自由增、减衣服。
-    </div>
   </div><!--id="right_content"-->
   <br class="clear">
   <br />

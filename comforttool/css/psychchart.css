@@ -17,14 +17,14 @@ path {
 }
 
 circle.outer{
-    stroke:red;
+    stroke:black;
     stroke-width:2px;
     fill: none;
 }
 circle.inner{
-    stroke:red;
+    stroke:black;
     stroke-width:2px;
-    fill: red;
+    fill: black;
 }
 path.rh100{
     stroke:Black;
@@ -47,7 +47,7 @@ path.comfortzone{
   fill-opacity: 0.5;
 } 
 path.comfortzone-temphum{
-  fill: rgb(0,0,100);
+  fill: rgb(255, 192, 102);
   fill-opacity: 0.5;
 }  
 path.comfortzoneover{
@@ -60,7 +60,7 @@ path.comfortzoneover{
 	transition-property: fill;
 	transition-duration: .5s;
 	transition-timing-function: ease-in;
-	fill: rgb(0,0,250);
+	fill: rgb(236, 70, 24);
 	fill-opacity: 0.5;
 }
 
