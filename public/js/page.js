@@ -22,181 +22,8 @@ var keys = ["ta", "tr", "vel", "rh", "met", "clo", "trm", "vel_a"];
 
 $(document).ready(function() {
 
-    var cloArticles = [{
-        article: '内衣类--内裤(男)',
-        clo: 0.04
-    },{
-        article: '内衣类--内裤(女)',
-        clo: 0.03
-    }, {
-        article: '内衣类--胸罩',
-        clo: 0.01
-    }, {
-        article: '内衣类--T恤',
-        clo: 0.08
-    }, {
-        article: '内衣类--长衬裙',
-        clo: 0.16
-    }, {
-        article: '内衣类--短衬裙',
-        clo: 0.14
-    }, {
-        article: '内衣类--秋衣',
-        clo: 0.2
-    }, {
-        article: '内衣类--秋裤',
-        clo: 0.15
-    }, {
-        article: '鞋袜类--踝袜(短袜)',
-        clo: 0.02
-    }, {
-        article: '鞋袜类--小腿袜(中袜)',
-        clo: 0.03
-    }, {
-        article: '鞋袜类--厚膝袜(厚长袜)',
-        clo: 0.06
-    }, {
-        article: '鞋袜类--丝袜裤(女)',
-        clo: 0.02
-    }, {
-        article: '鞋袜类--人字拖',
-        clo: 0.02
-    }, {
-        article: '鞋袜类--普通拖鞋',
-        clo: 0.03
-    }, {
-        article: '鞋袜类--皮靴',
-        clo: 0.1
-    }, {
-        article: '衬衣类--无袖圆领衬衫(女)',
-        clo: 0.12
-    }, {
-        article: '衬衣类--短袖衬衫(正装)',
-        clo: 0.19
-    }, {
-        article: '衬衣类--长袖衬衫(正装)',
-        clo: 0.25
-    }, {
-        article: '衬衣类--长袖绒衫',
-        clo: 0.34
-    }, {
-        article: '衬衣类--短袖针织衫',
-        clo: 0.17
-    }, {
-        article: '衬衣类--长袖运动衫',
-        clo: 0.34
-    }, {
-        article: '裤子类--短裤',
-        clo: 0.06
-    }, {
-        article: '裤子类--休闲短裤',
-        clo: 0.08
-    }, {
-        article: '裤子类--直筒长裤(薄)',
-        clo: 0.15
-    }, {
-        article: '裤子类--直筒长裤(厚)',
-        clo: 0.24
-    }, {
-        article: '裤子类--运动裤',
-        clo: 0.28
-    }, {
-        article: '裤子类--挂肩工装裤',
-        clo: 0.30
-    }, {
-        article: '裤子类--连衣工装裤',
-        clo: 0.49
-    }, {
-        article: '西服类--单排扣上衣(薄)',
-        clo: 0.36
-    }, {
-        article: '西服类--单排扣上衣(厚)',
-        clo: 0.44
-    }, {
-        article: '西服类--双排扣上衣(薄)',
-        clo: 0.42
-    }, {
-        article: '西服类--双排扣上衣(厚)',
-        clo: 0.48
-    }, {
-        article: '西服类--马甲/背心(薄)',
-        clo: 0.1
-    }, {
-        article: '西服类--马甲/背心(厚)',
-        clo: 0.17
-    }, {
-        article: '毛衣类--马甲/背心(薄)',
-        clo: 0.13
-    }, {
-        article: '毛衣类--马甲/背心(厚)',
-        clo: 0.22
-    }, {
-        article: '毛衣类--长袖毛衣(薄)',
-        clo: 0.25
-    }, {
-        article: '毛衣类--长袖毛衣(厚)',
-        clo: 0.36
-    }, {
-        article: '裙子类--长裙(薄)',
-        clo: 0.14
-    }, {
-        article: '裙子类--长裙(厚)',
-        clo: 0.23
-    }, {
-        article: '裙子类--长袖连衣裙(薄)',
-        clo: 0.33
-    }, {
-        article: '裙子类--长袖连衣裙(厚)',
-        clo: 0.47
-    }, {
-        article: '裙子类--短袖连衣裙(薄)',
-        clo: 0.29
-    }, {
-        article: '裙子类--无袖圆连衣裙(薄)',
-        clo: 0.23
-    }, {
-        article: '裙子类--无袖圆连衣裙(厚)',
-        clo: 0.27
-    }, {
-        article: '睡衣类--无袖短睡裙(薄,女)',
-        clo: 0.18
-    }, {
-        article: '睡衣类--无袖长睡裙(薄,女)',
-        clo: 0.2
-    }, {
-        article: '睡衣类--短袖长睡裙(薄,女)',
-        clo: 0.31
-    }, {
-        article: '睡衣类--长袖长睡裙(厚,女)',
-        clo: 0.46
-    }, {
-        article: '睡衣类--长袖睡衣(厚)',
-        clo: 0.57
-    }, {
-        article: '睡衣类--短袖睡衣(薄)',
-        clo: 0.42
-    }, {
-        article: '睡衣类--长袖长袍(厚)',
-        clo: 0.69
-    }, {
-        article: '睡衣类--长袖短袍(厚)',
-        clo: 0.48
-    }, {
-        article: '睡衣类--短袖短袍(薄)',
-        clo: 0.34
-    }, {
-        article: '坐椅类--金属椅',
-        clo: 0.00
-    }, {
-        article: '坐椅类--木板凳',
-        clo: 0.01
-    }, {
-        article: '坐椅类--普通办公椅',
-        clo: 0.10
-    }, {
-        article: '坐椅类--沙发椅',
-        clo: 0.15
-    }];
+    console.log(123)
+
     var cloEnsembles = [{
         clothing: '夏季室内典型着装: 0.5',
         clo: 0.5
@@ -225,168 +52,90 @@ $(document).ready(function() {
         clothing: '运动裤+长袖运动衫+拖鞋+内裤: 0.74',
         clo: 0.74
     }];
-    var actData = [{
-        activity: '放松站立: 1.2',
-        met: 1.2
-    }, {
-        activity: '静坐: 1.0',
-        met: 1.0
-    }, {
-        activity: '睡觉: 0.7',
-        met: 0.7
-    }, {
-        activity: '倚靠: 0.8',
-        met: 0.8
-    }, {
-        activity: '散步(3.2km/h): 2.0',
-        met: 2.0
-    }, {
-        activity: '散步(4.8km/h): 2.6',
-        met: 2.6
-    }, {
-        activity: '散步(6.4km/h): 3.8',
-        met: 3.8
-    }, {
-        activity: '坐着阅读: 1.0',
-        met: 1.0
-    }, {
-        activity: '坐着写字: 1.0',
-        met: 1.0
-    }, {
-        activity: '坐着打字: 1.1',
-        met: 1.1
-    }, {
-        activity: '坐着整理文件: 1.2',
-        met: 1.2
-    }, {
-        activity: '站着整理文件: 1.4',
-        met: 1.4
-    }, {
-        activity: '闲逛: 1.7',
-        met: 1.7
-    }, {
-        activity: '提东西/打包东西: 2.1',
-        met: 2.1
-    }, {
-        activity: '开轿车: 1.5',
-        met: 1.5
-    }, {
-        activity: '开民航飞机: 1.2',
-        met: 1.2
-    }, {
-        activity: '开战斗机: 2.4',
-        met: 2.4
-    }, {
-        activity: '开大型汽车: 3.2',
-        met: 3.2
-    }, {
-        activity: '做饭: 1.8',
-        met: 1.8
-    }, {
-        activity: '打扫卫生: 2.7',
-        met: 2.7
-    }, {
-        activity: '坐着做重型肢体运动: 2.2',
-        met: 2.2
-    }, {
-        activity: '锯工: 1.8',
-        met: 1.8
-    }, {
-        activity: '轻型器械工作: 2.2',
-        met: 2.2
-    }, {
-        activity: '重型器械工作: 4.0',
-        met: 4.0
-    }, {
-        activity: '举起45kg的物体: 4.0',
-        met: 4.0
-    }, {
-        activity: '体力挖掘工作: 4.4',
-        met: 4.4
-    }, {
-        activity: '跳舞: 3.4',
-        met: 3.4
-    }, {
-        activity: '做健美操/体操: 3.5',
-        met: 3.5
-    }, {
-        activity: '打网球: 3.8',
-        met: 3.8
-    }, {
-        activity: '打篮球: 6.3',
-        met: 6.3
-    }, {
-        activity: '摔跤: 7.8',
-        met: 7.8
-    }];
+ 
 
-    
-    var cloSelect = document.getElementById('cloSelect');
-    cloSelect.onchange = function() {
-        document.getElementById('clo').value = cloSelect.value;
-        update();
-    }
-    cloEnsembles.forEach(function(element) {
-        cloSelect.options.add(new Option(element.clothing, element.clo));
-    });
-    var cloMultiSelect = document.getElementById('cloMultiSelect');
-    cloArticles.forEach(function(element) {
-        cloMultiSelect.options.add(new Option(element.article, element.clo));
-    });
-    var actSelect = document.getElementById('actSelect');
-    actSelect.onchange = function() {
-        document.getElementById('met').value = actSelect.value;
-        update();
-    };
-    actData.forEach(function(element) {
-        actSelect.options.add(new Option(element.activity, element.met));
-    });
-    var velaSelect = document.getElementById('vel_a')
-    velaSelect.onchange = function() {
-        update();
-        var coolingEffect;
-        if (d.vel_a == 0.3) {
-            coolingEffect = 0
-        } else if (d.vel_a == 0.6) {
-            coolingEffect = 1.2
-        } else if (d.vel_a == 0.9) {
-            coolingEffect = 1.8
-        } else if (d.vel_a == 1.2) {
-            coolingEffect = 2.2
-        }
-        ac.redrawBounds(coolingEffect)
-    }
-    $(function() {
-        $(".multiselect").multiselect({
-            sortable: false,
-            searchable: false,
-            dividerLocation: 0.5
+    $.getJSON("./getClothes",function(Clothes){
+
+        $.getJSON("./getPostures",function(Postures){
+
+            console.log(Clothes, Postures)
+            cloArticles = Clothes
+            actData = Postures
+         
+            var cloSelect = document.getElementById('cloSelect');
+            cloSelect.onchange = function() {
+                document.getElementById('clo').value = cloSelect.value;
+                update();
+            }
+            cloEnsembles.forEach(function(element) {
+                cloSelect.options.add(new Option(element.clothing, element.clo));
+            });
+            var cloMultiSelect = document.getElementById('cloMultiSelect');
+            cloArticles.forEach(function(element) {
+                cloMultiSelect.options.add(new Option(element.name, element.clo));
+            });
+            var actSelect = document.getElementById('actSelect');
+            actSelect.onchange = function() {
+                document.getElementById('met').value = actSelect.value;
+                update();
+            };
+            actData.forEach(function(element) {
+                actSelect.options.add(new Option(element.name, element.met));
+            });
+            var velaSelect = document.getElementById('vel_a')
+            velaSelect.onchange = function() {
+                update();
+                var coolingEffect;
+                if (d.vel_a == 0.3) {
+                    coolingEffect = 0
+                } else if (d.vel_a == 0.6) {
+                    coolingEffect = 1.2
+                } else if (d.vel_a == 0.9) {
+                    coolingEffect = 1.8
+                } else if (d.vel_a == 1.2) {
+                    coolingEffect = 2.2
+                }
+                ac.redrawBounds(coolingEffect)
+            }
+            $(function() {
+                $(".multiselect").multiselect({
+                    sortable: false,
+                    searchable: false,
+                    dividerLocation: 0.5
+                });
+            });
+            $('#adaptive-inputs, #adaptive-note, #psychtop-note, #temphum-note, #chart-div-adaptive, #temphumchart-div').hide();
+            window.isCelsius = true;
+            window.humUnit = 'rh';
+            setDefaults();
+            update();
+            
+            $("#temphumchart-div, #temphum-note").show();
+            $("#chart-div, #psychta-note, #psychtop-note").hide();
+            if ($('#link').is(':checked')) {
+                $('#labelforlink').show();
+            } else {
+                $('#ta-lab').html('空气干球温度');
+                $('#globeTemp').removeAttr('disabled');
+                $('#tr-input, #tr-lab, #labelforlink').show();
+            }
+        
+            bc.drawChart();
+            var bound = bc.findComfortBoundary(d, 0.5)
+            bc.drawComfortRegion(bound);
+            bc.drawPoint();
+
+            init()
         });
     });
-    $('#adaptive-inputs, #adaptive-note, #psychtop-note, #temphum-note, #chart-div-adaptive, #temphumchart-div').hide();
-    window.isCelsius = true;
-    window.humUnit = 'rh';
-    setDefaults();
-    update();
-	
-	$("#temphumchart-div, #temphum-note").show();
-	$("#chart-div, #psychta-note, #psychtop-note").hide();
-	if ($('#link').is(':checked')) {
-		$('#labelforlink').show();
-	} else {
-		$('#ta-lab').html('空气干球温度');
-		$('#globeTemp').removeAttr('disabled');
-		$('#tr-input, #tr-lab, #labelforlink').show();
-	}
 
-    bc.drawChart();
-    var bound = bc.findComfortBoundary(d, 0.5)
-    bc.drawComfortRegion(bound);
-    bc.drawPoint();
-  
+    
+   
 });
 
-$(function() {
+function init() {
+
+    console.log(321)
 	
 	
     $('#relative-humidity .input').button().click(function(d){
@@ -494,20 +243,40 @@ $(function() {
 
         if(clothName != '' && clothName != undefined){
 
-            if (!clo.isNaN){
+            if (!clo.isNaN && clo < 1){
 
-               // alert('添加服装<'+ clothName +'>成功')
+                var cloMultiSelect = document.getElementById('cloMultiSelect');
+
+                cloMultiSelect.options.add(new Option(clothName + ' ' + clo, clo));
 
                 $.ajax({
                     type: "POST",
                     url: './addCloth',
-                    data: JSON.stringify({'name':clothName,'warm':clo}),
+                    data: JSON.stringify({'name':clothName,'clo':clo}),
                     success: d=>{alert('添加服装<'+ clothName +'>成功')},
                     contentType: 'application/json'
                   });
 
+                $(function() {
+
+                    $(".multiselect").multiselect('destroy')
+                    $(".multiselect").multiselect({
+                        sortable: false,
+                        searchable: false,
+                        dividerLocation: 0.5
+                    });
+                });
+            
+            }
+            else{
+
+                alert('请输入小于1的数值')
             }
         }  
+        else{
+
+            alert('请输入服装名称')
+        }
     });
 
     $('#addPosture').click(function(d){
@@ -517,24 +286,37 @@ $(function() {
 
         if(postureName != '' && postureName != undefined){
 
-            if (!met.isNaN){
+            if (!met.isNaN && met < 100){
 
-               // alert('添加服装<'+ postureName +'>成功')
+                var actSelect = document.getElementById('actSelect');
+                actSelect.options.add(new Option(postureName + ' ' + met, met));
 
                 $.ajax({
                     type: "POST",
                     url: './addPosture',
-                    data: JSON.stringify({'name':postureName,'met':met}),
+                    data: JSON.stringify({'name':postureName + ' ' + met,'met':met}),
                     success: d=>{alert('添加姿态<'+ postureName +'>成功')},
                     contentType: 'application/json'
                   });
 
+                $('select#actSelect').selectmenu({
+                    width: 200
+                });
+                
+            }
+            else{
+
+                alert('请输入小于100的数值')
             }
         }  
+        else{
+
+            alert('请输入姿态名称')
+        }
     });
 
 
-});
+}
 
 
 $('#link').click(function() {
@@ -610,6 +392,20 @@ function update() {
     if (!isCelsius){
         r.set = util.CtoF(r.set)
     }
+
+    let pmv = r.pmv
+    let ppd = r.ppd
+
+    let resultJson = {'干球温度':d.ta, '平均辐射温度':d.tr, '风速':d.vel, '相对湿度':d.rh,'新陈代谢率':d.met,'服装热阻':d.clo,'PMV':pmv,'pdd':ppd}
+
+    $.ajax({
+        type: "POST",
+        url: './addResult',
+        data: JSON.stringify(resultJson),
+        //success: d=>{alert('添加姿态<'+ postureName +'>成功')},
+        contentType: 'application/json'
+      });
+
 	
     renderPmvElevResults(r);
     calcPmvElevCompliance(d, r);
